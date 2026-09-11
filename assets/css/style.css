@@ -598,11 +598,15 @@ figure { margin: 0; }
     gap: 32px;
     padding-bottom: 32px;
   }
-  .site-footer img { width: 116px; margin-bottom: 16px; }
+
+  /* Numa só coluna, o conteúdo centrado equilibra melhor do que encostado
+     à esquerda — incluindo o logótipo, que deixa de ter coluna própria. */
+  .site-footer { text-align: center; }
+  .site-footer img { width: 116px; margin: 0 auto 16px; }
   .site-footer h4 { margin-bottom: 12px; }
 
   .footer-bottom {
-    flex-direction: column; align-items: flex-start;
+    flex-direction: column; align-items: center; text-align: center;
     font-size: var(--step--1); line-height: 1.6; gap: 6px;
   }
 

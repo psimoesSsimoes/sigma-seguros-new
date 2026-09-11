@@ -44,11 +44,9 @@ ADDRESS = {
 
 FOOTER_HEADS = {
     "pt": ("Navegação", "Contactos", "24 horas, 7 dias por semana",
-           "SIGMA — Consultores de Seguros",
-           "Mediador de seguros registado na ASF"),
+           "SIGMA — Consultores de Seguros"),
     "en": ("Navigation", "Contact", "24 hours a day, 7 days a week",
-           "SIGMA — Insurance Consultants",
-           "Insurance mediator registered with the ASF"),
+           "SIGMA — Insurance Consultants"),
 }
 
 SCHEMA = """{
@@ -112,7 +110,7 @@ def header(path, lang, alt_path):
 
 
 def footer(lang):
-    nav_head, contact_head, hours, name, asf = FOOTER_HEADS[lang]
+    nav_head, contact_head, hours, name = FOOTER_HEADS[lang]
     links = "\n".join(
         f'          <li><a href="{href}">{label}</a></li>' for href, label in NAV[lang]
     )
@@ -143,7 +141,6 @@ def footer(lang):
     </div>
     <div class="footer-bottom">
       <p>© <span id="y">2026</span> {name}</p>
-      <p>{asf} <!-- TODO: inserir número de registo ASF --></p>
     </div>
   </div>
 </footer>"""

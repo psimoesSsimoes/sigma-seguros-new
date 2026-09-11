@@ -585,12 +585,26 @@ figure { margin: 0; }
 @media (max-width: 640px) {
   /* A escala fluida encolhe o texto pequeno justamente onde é preciso maior.
      Estes blocos são morada e contactos: fixam-se num tamanho confortável. */
-  .site-footer { font-size: var(--step-0); }
+  .site-footer { font-size: var(--step-0); padding-block: 48px 26px; }
   .site-footer ul { gap: 4px; }
   .site-footer a { display: inline-block; padding-block: 10px; }
   .site-footer address { margin-bottom: 4px; }
-  .footer-grid { gap: 34px; }
-  .footer-bottom { font-size: var(--step--1); line-height: 1.6; gap: 8px; }
+
+  /* A primeira coluna do rodapé é uma track explícita (1.4fr) e não colapsa
+     sozinha — só as do auto-fit é que o fazem. Sem isto ficariam sempre duas
+     colunas espremidas lado a lado no telemóvel. */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+  }
+  .site-footer img { width: 116px; margin-bottom: 16px; }
+  .site-footer h4 { margin-bottom: 12px; }
+
+  .footer-bottom {
+    flex-direction: column; align-items: flex-start;
+    font-size: var(--step--1); line-height: 1.6; gap: 6px;
+  }
 
   .contact-list { gap: 30px; }
   .contact-list dd { font-size: var(--step-1); }
